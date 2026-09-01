@@ -12,3 +12,78 @@
 .made-time { margin:20px 0; padding:14px; border-radius:14px; background:#171717; color:white; font-size:1.15rem; }
 .fake-note { font-size:.82rem; opacity:.65; }
 @keyframes pop { from { transform:scale(.92); opacity:.2 } to { transform:scale(1); opacity:1 } }
+
+/* FANCY KITCHEN LOG POPUP */
+.food-modal {
+  backdrop-filter: blur(10px);
+  background: rgba(20, 16, 12, .78);
+}
+.food-modal-box {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .7);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 210, 120, .25), transparent 38%),
+    linear-gradient(145deg, #fffdf8, #f5ead8);
+  border-radius: 30px;
+  padding: 0 38px 34px;
+  color: #17120d;
+  box-shadow: 0 35px 100px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.15);
+}
+.food-modal-box::before {
+  content: "";
+  display: block;
+  height: 7px;
+  margin: 0 -38px 28px;
+  background: linear-gradient(90deg, #17120d, #c89b5a, #17120d);
+}
+.food-modal-icon {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 12px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #17120d;
+  box-shadow: 0 10px 25px rgba(0,0,0,.2);
+  font-size: 2.3rem;
+}
+.food-modal-box h2 {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  letter-spacing: -.02em;
+}
+.food-modal-box p {
+  line-height: 1.6;
+}
+.made-time {
+  border: 1px solid rgba(255,255,255,.15);
+  background: linear-gradient(135deg, #17120d, #33261a);
+  border-radius: 18px;
+  padding: 18px 20px;
+  margin: 24px 0 16px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 10px 25px rgba(0,0,0,.15);
+}
+.made-time strong {
+  color: #e5c07b;
+}
+#modalMadeTime {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .04em;
+}
+.food-modal-close {
+  width: 42px;
+  height: 42px;
+  right: 15px;
+  top: 15px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.7);
+  transition: transform .15s ease, background .15s ease;
+}
+.food-modal-close:hover {
+  transform: rotate(8deg) scale(1.05);
+  background: white;
+}
+.fake-note {
+  padding-top: 8px;
+  font-size: .78rem;
+}
