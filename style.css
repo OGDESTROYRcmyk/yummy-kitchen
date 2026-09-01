@@ -90,3 +90,70 @@
 
 .card { cursor: pointer; user-select: none; }
 .card:hover { transform: translateY(-3px); transition: transform .15s ease; }
+
+/* ULTIMATE YUMMY KITCHEN FEATURES */
+.order-bar {
+  position: sticky; top: 12px; z-index: 500; display:flex; justify-content:flex-end;
+  padding: 12px 28px; pointer-events:none;
+}
+.order-button {
+  pointer-events:auto; border:0; border-radius:999px; padding:13px 20px;
+  background:#17120d; color:#fff; font-weight:800; cursor:pointer;
+  box-shadow:0 10px 28px rgba(0,0,0,.2);
+}
+.order-button span { display:inline-grid; place-items:center; min-width:24px; height:24px; margin-left:5px;
+  border-radius:50%; background:#e5c07b; color:#17120d; }
+
+.food-picture {
+  width:78px; height:78px; display:grid; place-items:center; font-size:3.1rem;
+  border-radius:22px; margin-bottom:14px;
+  background:linear-gradient(145deg,#fff8e9,#ead9bd);
+  box-shadow:inset 0 1px 0 white, 0 8px 18px rgba(0,0,0,.08);
+}
+.chef-badge {
+  display:inline-block; margin-left:5px; padding:4px 8px; border-radius:999px;
+  background:#17120d; color:#e5c07b; font-size:.55em; vertical-align:middle;
+  letter-spacing:.02em;
+}
+.rating { margin:14px 0 10px; font-size:.92rem; letter-spacing:1px; }
+.rating span { letter-spacing:0; color:#777; margin-left:6px; }
+.add-order {
+  width:100%; border:0; border-radius:13px; padding:12px; cursor:pointer;
+  background:#17120d; color:#fff; font-weight:800;
+}
+.add-order:hover { transform:translateY(-1px); }
+
+.overlay-modal {
+  position:fixed; inset:0; z-index:9998; display:none; align-items:center; justify-content:center;
+  padding:20px; background:rgba(15,12,8,.78); backdrop-filter:blur(10px);
+}
+.overlay-modal.show { display:flex; }
+.panel {
+  width:min(540px,94vw); max-height:88vh; overflow:auto; position:relative;
+  padding:34px; border-radius:28px; background:linear-gradient(145deg,#fffdf8,#f5ead8);
+  color:#17120d; box-shadow:0 35px 100px rgba(0,0,0,.45);
+}
+.panel h2 { font-family:Georgia,serif; font-size:2rem; margin:5px 0 10px; }
+.panel-kicker { font-size:.75rem; font-weight:900; letter-spacing:.14em; color:#8b6a35; }
+.panel-close { position:absolute; top:14px; right:14px; width:42px; height:42px;
+  border:0; border-radius:50%; background:#fff; font-size:1.8rem; cursor:pointer; }
+.primary-button { width:100%; margin-top:18px; border:0; border-radius:15px; padding:15px;
+  background:#17120d; color:#fff; font-weight:900; cursor:pointer; }
+.cart-row { display:flex; align-items:center; gap:12px; padding:13px 0; border-bottom:1px solid #ded2c0; }
+.cart-row .cart-emoji { font-size:2rem; }
+.cart-row-main { flex:1; }
+.cart-row-name { font-weight:800; }
+.cart-row-price { color:#765b30; font-weight:700; }
+.remove-item { border:0; background:transparent; cursor:pointer; font-size:1.1rem; }
+.cart-total { display:flex; justify-content:space-between; padding:20px 0 5px; font-size:1.2rem; }
+.fake-card { margin:20px 0; padding:22px; min-height:145px; border-radius:20px; color:#fff;
+  background:linear-gradient(135deg,#20170f,#76572e); box-shadow:0 15px 35px rgba(0,0,0,.2); }
+.fake-card-top,.fake-card-bottom { display:flex; justify-content:space-between; font-size:.78rem; }
+.fake-card-number { margin:38px 0 20px; letter-spacing:.18em; font-size:1.15rem; }
+.receipt-crown { font-size:3rem; text-align:center; }
+.receipt-line { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px dashed #cbbda7; }
+.receipt-total { display:flex; justify-content:space-between; padding-top:15px; font-size:1.2rem; font-weight:900; }
+.toast { position:fixed; left:50%; bottom:24px; transform:translate(-50%,20px);
+  z-index:10000; padding:12px 18px; border-radius:999px; background:#17120d; color:white;
+  opacity:0; pointer-events:none; transition:.2s; font-weight:700; }
+.toast.show { opacity:1; transform:translate(-50%,0); }

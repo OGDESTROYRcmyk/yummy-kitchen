@@ -7,6 +7,50 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class="order-bar">
+  <button id="orderButton" class="order-button">🛒 Your Order <span id="cartCount">0</span></button>
+</div>
+
+<div id="toast" class="toast" aria-live="polite"></div>
+
+<div id="cartModal" class="overlay-modal" aria-hidden="true">
+  <div class="panel cart-panel">
+    <button class="panel-close" data-close="cartModal">×</button>
+    <div class="panel-kicker">👑 THE YUMMY KITCHEN</div>
+    <h2>Your Order</h2>
+    <div id="cartItems"></div>
+    <div class="cart-total"><span>Total</span><strong id="cartTotal">£0.00</strong></div>
+    <button id="checkoutButton" class="primary-button">Proceed to Fake Checkout →</button>
+  </div>
+</div>
+
+<div id="checkoutModal" class="overlay-modal" aria-hidden="true">
+  <div class="panel checkout-panel">
+    <button class="panel-close" data-close="checkoutModal">×</button>
+    <div class="panel-kicker">✨ SECURE-ISH CHECKOUT</div>
+    <h2>Fancy Fake Checkout</h2>
+    <p>This is a demo checkout — no real payment is taken.</p>
+    <div class="fake-card">
+      <div class="fake-card-top"><span>YUMMY KITCHEN</span><span>👑</span></div>
+      <div class="fake-card-number">••••  ••••  ••••  2026</div>
+      <div class="fake-card-bottom"><span>YUMMY GUEST</span><span>DEMO</span></div>
+    </div>
+    <button id="placeOrderButton" class="primary-button">Place Fake Order 🎉</button>
+  </div>
+</div>
+
+<div id="receiptModal" class="overlay-modal" aria-hidden="true">
+  <div class="panel receipt-panel">
+    <button class="panel-close" data-close="receiptModal">×</button>
+    <div class="receipt-crown">👑</div>
+    <h2>Order Confirmed!</h2>
+    <p>Your completely fictional Yummy Kitchen order is ready for the kitchen.</p>
+    <div id="receiptContent"></div>
+    <button class="primary-button" data-close="receiptModal">Done ✓</button>
+  </div>
+</div>
+
   <header class="hero">
     <nav>
       <div class="logo">👑 The Yummy Kitchen</div>
