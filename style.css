@@ -87,3 +87,6 @@
   padding-top: 8px;
   font-size: .78rem;
 }
+
+.card { cursor: pointer; user-select: none; }
+.card:hover { transform: translateY(-3px); transition: transform .15s ease; }

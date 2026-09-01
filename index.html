@@ -104,7 +104,6 @@
     <p>© 2026 The Yummy Kitchen • Fictional Restaurant</p>
   </footer>
 
-  <script src="script.js"></script>
 
 <div id="foodModal" class="food-modal" aria-hidden="true">
   <div class="food-modal-box">
@@ -116,6 +115,53 @@
     <p class="fake-note">✨ Yummy Kitchen kitchen log — fictional time for fun!</p>
   </div>
 </div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("foodModal");
+  const modalName = document.getElementById("modalFoodName");
+  const modalDescription = document.getElementById("modalFoodDescription");
+  const modalTime = document.getElementById("modalMadeTime");
+  const closeButton = document.querySelector(".food-modal-close");
+
+  const fakeTimes = [
+    "08:12 AM","09:27 AM","10:05 AM","11:18 AM","12:03 PM",
+    "12:47 PM","01:16 PM","02:24 PM","03:11 PM","04:38 PM",
+    "05:06 PM","06:22 PM","07:14 PM","08:03 PM","09:31 PM"
+  ];
+
+  document.addEventListener("click", function (event) {
+    const card = event.target.closest(".card");
+    if (!card || !modal) return;
+
+    const name = card.querySelector("h3");
+    const description = card.querySelector("p");
+
+    modalName.textContent = name ? name.textContent.trim() : "Yummy Kitchen dish";
+    modalDescription.textContent = description ? description.textContent.trim() : "A Yummy Kitchen favourite.";
+    modalTime.textContent = fakeTimes[Math.floor(Math.random() * fakeTimes.length)];
+
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
+  });
+
+  function closeFoodModal() {
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+  }
+
+  closeButton.addEventListener("click", closeFoodModal);
+
+  modal.addEventListener("click", function (event) {
+    if (event.target === modal) closeFoodModal();
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") closeFoodModal();
+  });
+});
+</script>
 
 </body>
 </html>
