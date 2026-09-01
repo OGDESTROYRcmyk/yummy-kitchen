@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hajrah's Recipe Book 🍳</title>
+<style>
+:root{--pink:#ff8fb1;--lav:#e9ddff;--cream:#fffaf2;--dark:#49394f;--white:#fff;--green:#e7f7e9}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Trebuchet MS",Arial,sans-serif;color:var(--dark);background:linear-gradient(135deg,#fff7fb,#f7f3ff)}
+header{text-align:center;padding:55px 20px 42px;background:linear-gradient(135deg,#ffd8e6,#e8ddff);border-radius:0 0 35px 35px}
+header h1{font-size:clamp(2.2rem,6vw,4rem);margin:0 0 8px}
+header p{margin:0;font-size:1.05rem}
+.container{width:min(1100px,92%);margin:30px auto 60px}
+.search{width:100%;max-width:700px;display:block;margin:0 auto 30px;padding:15px 20px;border:2px solid #eaddea;border-radius:999px;font-size:1rem;outline:none;box-shadow:0 8px 20px #00000010}
+.search:focus{border-color:var(--pink)}
+.recipe-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:25px}
+.card{background:white;border-radius:25px;overflow:hidden;box-shadow:0 10px 25px #49394f18;transition:.2s}
+.card:hover{transform:translateY(-5px)}
+.food-image{height:210px;background:#fff0f5;overflow:hidden}
+.food-image img{width:100%;height:100%;object-fit:cover;display:block}
+.content{padding:22px}
+h2{margin:0 0 8px}
+.description{color:#765f76;margin-top:0;line-height:1.45}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.badge,.price{padding:7px 11px;border-radius:999px;font-size:.85rem;font-weight:bold}
+.badge{background:#f0eaff;color:#6652a8}
+.price{background:var(--green);color:#28743b}
+details{margin-top:14px;background:#fff8fb;border-radius:15px;padding:12px 14px}
+summary{cursor:pointer;font-weight:bold}
+li{margin:7px 0}
+.note{margin-top:12px;padding:10px 12px;border-left:4px solid var(--pink);background:#fff;border-radius:8px;font-size:.9rem}
+.empty{text-align:center;padding:40px;display:none}
+footer{text-align:center;padding:25px;color:#7a6b7e;font-size:.9rem}
+</style>
+</head>
+<body>
+<header>
+<h1>🍳 Hajrah's Recipe Book</h1>
+<p>My little collection of simple recipes I've made with ChatGPT! 💕</p>
+</header>
+
+<main class="container">
+<input class="search" id="search" type="search" placeholder="🔎 Search recipes or ingredients...">
+
+<section class="recipe-grid" id="recipes">
+
+<article class="card" data-search="egg soy sauce noodles ketchup bread">
+<div class="food-image"><img src="https://thespiceclub.nl/cdn/shop/articles/The_Spice_Club_Recept_72_cb556c10-a08d-4f41-8046-7f74ed120e46.png?v=1774513919" alt="Egg soy sauce noodles"></div>
+<div class="content">
+<h2>🍜 Egg Soy-Sauce Noodles</h2>
+<p class="description">A quick noodle bowl with egg and a tasty soy-sauce and ketchup twist.</p>
+<div class="badges"><span class="badge">⏱️ ~10 min</span><span class="price">💰 ~QAR 5</span></div>
+<details><summary>🥣 Ingredients</summary><ul>
+<li>1 serving noodles</li><li>1 egg</li><li>1–2 tsp soy sauce</li><li>1 tsp ketchup</li><li>Optional: a little oil or butter</li>
+</ul></details>
+<details><summary>👩‍🍳 How to make it</summary><ol>
+<li>Cook the noodles according to the packet instructions.</li>
+<li>Drain most of the water.</li>
+<li>Cook the egg in a pan until safely cooked through.</li>
+<li>Add the noodles, soy sauce and ketchup and stir.</li>
+<li>Top with the egg and enjoy!</li>
+</ol></details>
+<div class="note">💡 Price is an estimate and depends on the shop and brand.</div>
+</div></article>
+
+<article class="card" data-search="chicken salami toastie bread butter ketchup egg">
+<div class="food-image"><img src="https://img-global.cpcdn.com/steps/cf46a6565fd96faa/400x400cq80/photo.jpg" alt="Chicken salami toastie"></div>
+<div class="content">
+<h2>🥪 Chicken Salami Toastie</h2>
+<p class="description">Crispy buttery bread with chicken salami and ketchup.</p>
+<div class="badges"><span class="badge">⏱️ ~10 min</span><span class="price">💰 ~QAR 6</span></div>
+<details><summary>🥣 Ingredients</summary><ul>
+<li>2 slices bread</li><li>Chicken salami</li><li>A little butter</li><li>Ketchup</li><li>Optional: 1 egg</li>
+</ul></details>
+<details><summary>👩‍🍳 How to make it</summary><ol>
+<li>Spread a little butter on the outside of the bread.</li>
+<li>Put chicken salami between the slices.</li>
+<li>Heat a frying pan over medium heat.</li>
+<li>Cook the sandwich on both sides until golden and crisp.</li>
+<li>Add ketchup. If using an egg, cook it separately until safely cooked through.</li>
+</ol></details>
+<div class="note">🔥 Ask an adult for help with the hot pan if you need it.</div>
+</div></article>
+
+<article class="card" data-search="egg bread toast ketchup breakfast snack">
+<div class="food-image"><img src="https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/medium/fried_egg_on_toast.jpg" alt="Egg and bread"></div>
+<div class="content">
+<h2>🍳 Egg & Bread</h2>
+<p class="description">A super simple breakfast or snack using basic ingredients.</p>
+<div class="badges"><span class="badge">⏱️ ~5–10 min</span><span class="price">💰 ~QAR 3</span></div>
+<details><summary>🥣 Ingredients</summary><ul>
+<li>1 egg</li><li>1–2 slices bread</li><li>Optional: a little butter or oil</li><li>Optional: ketchup</li>
+</ul></details>
+<details><summary>👩‍🍳 How to make it</summary><ol>
+<li>Heat a pan over medium heat with a little butter or oil.</li>
+<li>Cook the egg until safely cooked through.</li>
+<li>Toast the bread.</li>
+<li>Put the egg on the toast and add ketchup if you like.</li>
+</ol></details>
+<div class="note">💡 Keep it simple or add your favourite toppings!</div>
+</div></article>
+
+</section>
+<div class="empty" id="empty">😅 No recipes found. Try another search!</div>
+</main>
+
+<footer>📸 Real-food reference photos • Made with 💕, noodles 🍜 and lots of experimenting.</footer>
+
+<script>
+const search=document.getElementById("search"),cards=[...document.querySelectorAll(".card")],empty=document.getElementById("empty");
+search.addEventListener("input",()=>{
+ const term=search.value.toLowerCase().trim(); let shown=0;
+ cards.forEach(card=>{const ok=card.dataset.search.includes(term);card.style.display=ok?"":"none";if(ok)shown++});
+ empty.style.display=shown?"none":"block";
+});
+</script>
+</body>
+</html>
