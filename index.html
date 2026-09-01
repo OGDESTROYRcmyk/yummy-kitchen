@@ -29,7 +29,7 @@
   <main>
     <section class="intro">
       <h2>Welcome</h2>
-      <p>This is the official fictional luxury restaurant website for The Yummy Kitchen.</p>
+      <p>This is the official fictional luxury restaurant website for The Yummy Kitchen.</p><p class="click-hint">👆 Click any food card to see its fictional kitchen-made time!</p>
     </section>
 
     <section id="starters">
@@ -105,5 +105,17 @@
   </footer>
 
   <script src="script.js"></script>
+
+<div id="foodModal" class="food-modal" aria-hidden="true">
+  <div class="food-modal-box">
+    <button class="food-modal-close" aria-label="Close">×</button>
+    <div class="food-modal-icon">🍽️</div>
+    <h2 id="modalFoodName">Food</h2>
+    <p id="modalFoodDescription"></p>
+    <div class="made-time">🕒 <strong>Made at:</strong> <span id="modalMadeTime"></span></div>
+    <p class="fake-note">✨ Yummy Kitchen kitchen log — fictional time for fun!</p>
+  </div>
+</div>
+
 </body>
 </html>
