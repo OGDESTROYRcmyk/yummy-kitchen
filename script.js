@@ -118,25 +118,61 @@ let pi=0;setInterval(()=>{$("#promoText").textContent=promos[++pi%promos.length]
 $("#chefStatus").textContent=["Chef is cooking!","Chef is plating!","Chef is checking the sauce!","Chef is preparing dessert!"][new Date().getMinutes()%4];
 $("#dailyPick").textContent=foods[new Date().getDate()%foods.length][2];
 
-let gameRunning=false,score=0,time=30,timer;
+let gameRunning=false,score=0,time=30,timer,spawnTimer;
+let basketX=50;
 const gameFoods=["🍔","🍕","🍪","🍟","🍩","🍗","🍓","🥞","🍰","🍜","🧁","🍉"];
+
+function moveBasket(dir){
+ if(!gameRunning)return;
+ basketX=Math.max(7,Math.min(93,basketX+dir*5));
+ $("#basket").style.left=basketX+"%";
+}
+document.addEventListener("keydown",e=>{
+ if(e.key==="ArrowLeft"){e.preventDefault();moveBasket(-1)}
+ if(e.key==="ArrowRight"){e.preventDefault();moveBasket(1)}
+});
+
 function startGame(){
  if(gameRunning)return;
- gameRunning=true;score=0;time=30;$("#score").textContent=0;$("#time").textContent=30;$("#startGame").textContent="GAME RUNNING!";
- const board=$("#gameBoard");
+ gameRunning=true;score=0;time=30;basketX=50;
+ $("#score").textContent=0;$("#time").textContent=30;$("#basket").style.left="50%";
+ $("#startGame").textContent="GAME RUNNING!";
  $$(".game-food").forEach(x=>x.remove());
  timer=setInterval(()=>{time--;$("#time").textContent=time;if(time<=0)endGame()},1000);
- let spawner=setInterval(()=>{if(!gameRunning){clearInterval(spawner);return}spawnFood()},600);
- board.dataset.spawner="1";
+ spawnTimer=setInterval(spawnFood,650);
+ spawnFood();
 }
+
 function spawnFood(){
  if(!gameRunning)return;
- const board=$("#gameBoard"),el=document.createElement("span");el.className="game-food";el.textContent=gameFoods[Math.floor(Math.random()*gameFoods.length)];
- el.style.left=(5+Math.random()*88)+"%";el.style.animationDuration=(1.5+Math.random()*1.7)+"s";board.appendChild(el);
- el.onclick=()=>{if(!gameRunning)return;score++;$("#score").textContent=score;el.remove();if(score%5===0){coins+=10;updateCoins();toast("🪙 +10 coins!")}};
- setTimeout(()=>el.remove(),3800);
+ const board=$("#gameBoard"),el=document.createElement("span");
+ el.className="game-food";
+ el.textContent=gameFoods[Math.floor(Math.random()*gameFoods.length)];
+ el.style.left=(4+Math.random()*92)+"%";
+ el.style.animationDuration="2.8s";
+ board.appendChild(el);
+
+ const check=setInterval(()=>{
+  if(!gameRunning){clearInterval(check);return}
+  const a=el.getBoundingClientRect(),b=$("#basket").getBoundingClientRect();
+  if(a.bottom>=b.top && a.left<b.right && a.right>b.left){
+   score++;$("#score").textContent=score;el.remove();clearInterval(check);
+   if(score%5===0){coins+=10;updateCoins();toast("🪙 +10 coins!")}
+  }
+ },40);
+
+ setTimeout(()=>{clearInterval(check);el.remove()},3000);
 }
-function endGame(){gameRunning=false;clearInterval(timer);if(score>best){best=score;toast(`🏆 New best score: ${score}!`)}else toast(`🎮 Game over — score ${score}`);coins+=Math.max(0,score);$("#startGame").textContent="PLAY AGAIN";save()}
+
+function endGame(){
+ gameRunning=false;clearInterval(timer);clearInterval(spawnTimer);
+ $$(".game-food").forEach(x=>x.remove());
+ if(score>best){best=score;toast(`🏆 New best score: ${score}!`)}
+ else toast(`🎮 Game over — score ${score}`);
+ coins+=Math.max(0,score);
+ $("#startGame").textContent="PLAY AGAIN";
+ save();
+}
 $("#startGame").onclick=startGame;
 
 updateCoins();renderMenu();renderCart();renderAchievements();
