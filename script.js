@@ -312,3 +312,69 @@ renderShop();renderRooms();renderDaily();updateGameHUD();
 updateCoins();renderMenu();renderCart();renderAchievements();
 
 });
+
+/* YUMMY KITCHEN CITY */
+const CITY_KEY='yummyCityState';
+let cityState=JSON.parse(localStorage.getItem(CITY_KEY)||'null')||{
+  coins:0, rep:0, level:1, lastReward:'', districts:{'Burger District':true}, mission:0
+};
+function saveCity(){localStorage.setItem(CITY_KEY,JSON.stringify(cityState)); updateCityUI();}
+function cityMsg(t){
+  const el=document.getElementById('cityLog'); if(el) el.textContent=t;
+  if(typeof window.toast==='function') window.toast(t); else console.log(t);
+}
+function updateCityUI(){
+  const c=document.getElementById('cityCoins'),r=document.getElementById('cityRep'),l=document.getElementById('cityLevel');
+  if(c)c.textContent=cityState.coins;
+  if(r)r.textContent=cityState.rep;
+  if(l)l.textContent=cityState.level;
+  document.querySelectorAll('.city-card').forEach(card=>{
+    const name=card.querySelector('b')?.textContent;
+    if(cityState.districts[name]){
+      card.classList.add('unlocked');
+      const small=card.querySelector('small'); if(small) small.textContent='Unlocked — visit the district!';
+    }
+  });
+}
+function openCity(){
+  document.getElementById('city')?.scrollIntoView({behavior:'smooth',block:'start'});
+  cityMsg('🏙️ Welcome to Yummy Kitchen City!');
+}
+function visitDistrict(name){
+  if(!cityState.districts[name]) return cityMsg('🔒 Unlock this district first!');
+  cityState.rep+=10;
+  cityState.coins+=25;
+  cityState.mission++;
+  saveCity();
+  cityMsg('🚶 You visited '+name+'! +25 City Coins and +10 Reputation.');
+}
+function unlockDistrict(card,name,cost){
+  if(cityState.districts[name]) return visitDistrict(name);
+  if(cityState.coins<cost) return cityMsg('🪙 You need '+cost+' City Coins to unlock '+name+'.');
+  cityState.coins-=cost;
+  cityState.districts[name]=true;
+  cityState.rep+=25;
+  saveCity();
+  cityMsg('🎉 '+name+' unlocked! Your city is growing!');
+}
+function cityMission(){
+  const target=5;
+  if(cityState.mission>=target){
+    cityState.mission=0; cityState.coins+=150; cityState.rep+=50; saveCity();
+    return cityMsg('🏆 Mission complete! +150 City Coins and +50 Reputation.');
+  }
+  cityMsg('📋 City Mission: visit '+(target-cityState.mission)+' more district'+(target-cityState.mission===1?'':'s')+'.');
+}
+function cityReward(){
+  const today=new Date().toISOString().slice(0,10);
+  if(cityState.lastReward===today) return cityMsg('⏰ You already collected today’s City Reward.');
+  cityState.lastReward=today; cityState.coins+=100; cityState.rep+=20; saveCity();
+  cityMsg('🎁 Daily City Reward: +100 City Coins and +20 Reputation!');
+}
+function cityUpgrade(){
+  const cost=cityState.level*250;
+  if(cityState.coins<cost) return cityMsg('⬆️ City Level '+(cityState.level+1)+' costs '+cost+' City Coins.');
+  cityState.coins-=cost; cityState.level++; cityState.rep+=75; saveCity();
+  cityMsg('🌟 City upgraded to Level '+cityState.level+'!');
+}
+document.addEventListener('DOMContentLoaded',updateCityUI);

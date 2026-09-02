@@ -126,6 +126,53 @@
   <div id="cart"></div>
   <div class="checkout-row"><b>Total: <span id="total">£0.00</span></b><button id="checkout" class="primary">Checkout</button></div>
 </section>
+
+<section id="city" class="panel city-panel">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">🌆 YUMMY KITCHEN CITY</p>
+      <h2>Build your food empire</h2>
+      <p>Explore districts, unlock shops and collect City Coins.</p>
+    </div>
+    <button class="primary" onclick="openCity()">🗺️ Enter City</button>
+  </div>
+
+  <div class="city-stats">
+    <span>🏙️ City Level <b id="cityLevel">1</b></span>
+    <span>🪙 City Coins <b id="cityCoins">0</b></span>
+    <span>⭐ Reputation <b id="cityRep">0</b></span>
+  </div>
+
+  <div class="city-grid">
+    <button class="city-card unlocked" onclick="visitDistrict('Burger District')">
+      <span>🍔</span><b>Burger District</b><small>Home of the legendary Chicken Burger</small>
+    </button>
+    <button class="city-card" data-cost="150" onclick="unlockDistrict(this,'Noodle Station',150)">
+      <span>🍜</span><b>Noodle Station</b><small>Unlock for 150 City Coins</small>
+    </button>
+    <button class="city-card" data-cost="250" onclick="unlockDistrict(this,'Dessert Palace',250)">
+      <span>🍰</span><b>Dessert Palace</b><small>Unlock for 250 City Coins</small>
+    </button>
+    <button class="city-card" data-cost="350" onclick="unlockDistrict(this,'Drink Plaza',350)">
+      <span>🥤</span><b>Drink Plaza</b><small>Unlock for 350 City Coins</small>
+    </button>
+    <button class="city-card" data-cost="500" onclick="unlockDistrict(this,'Tropical Kitchen',500)">
+      <span>🥭</span><b>Tropical Kitchen</b><small>Unlock for 500 City Coins</small>
+    </button>
+    <button class="city-card" data-cost="750" onclick="unlockDistrict(this,'VIP Palace',750)">
+      <span>👑</span><b>VIP Palace</b><small>Unlock for 750 City Coins</small>
+    </button>
+  </div>
+
+  <div class="city-actions">
+    <button onclick="cityMission()">📋 City Mission</button>
+    <button onclick="cityReward()">🎁 Collect Daily City Reward</button>
+    <button onclick="cityUpgrade()">⬆️ Upgrade City</button>
+  </div>
+
+  <div id="cityLog" class="city-log">Welcome to Yummy Kitchen City! 🍔</div>
+</section>
+
 </main>
 
 <div id="toast"></div>

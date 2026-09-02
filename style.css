@@ -12,3 +12,18 @@
 .creator{display:flex;gap:10px;flex-wrap:wrap}.creator select{padding:12px;border-radius:12px;border:1px solid #0002}
 .wheel-result{font-size:5rem;text-align:center;padding:20px;min-height:110px}.wheel-result.spin{animation:spinResult 1s ease}
 @keyframes spinResult{50%{transform:rotate(15deg) scale(1.15)}}
+
+/* YUMMY KITCHEN CITY */
+.city-panel{margin-top:28px}
+.city-stats{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
+.city-stats span{padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.08)}
+.city-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.city-card{min-height:150px;border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:18px;text-align:left;background:rgba(255,255,255,.06);color:inherit;cursor:pointer;transition:.2s}
+.city-card:hover{transform:translateY(-4px)}
+.city-card span{display:block;font-size:38px;margin-bottom:8px}
+.city-card b{display:block;font-size:18px}
+.city-card small{display:block;opacity:.72;margin-top:7px;line-height:1.35}
+.city-card.unlocked{outline:2px solid rgba(255,255,255,.18)}
+.city-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.city-actions button{border:0;border-radius:14px;padding:11px 15px;cursor:pointer}
+.city-log{margin-top:16px;padding:14px;border-radius:15px;background:rgba(255,255,255,.07);min-height:22px}
