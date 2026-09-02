@@ -244,7 +244,7 @@
 <div id="toast" class="toast"></div>
 
 <div id="foodModal" class="overlay-modal">
-<div class="panel food-panel"><button class="panel-close" data-close="foodModal">×</button><div id="modalEmoji" class="big-emoji">🍽️</div><div class="panel-kicker">👑 KITCHEN LOG</div><h2 id="modalFoodName">Food</h2><p id="modalFoodDescription"></p><div class="made-time">🕒 <strong>Made at:</strong> <span id="modalMadeTime"></span></div><p class="note">✨ Fictional kitchen time for fun!</p></div>
+<div class="panel food-panel"><button class="panel-close" data-close="foodModal">×</button><div id="modalEmoji" class="big-emoji">🍽️</div><div class="panel-kicker">👑 KITCHEN LOG</div><h2 id="modalFoodName">Food</h2><p id="modalFoodDescription"></p><div class="made-time">🕒 <strong>Made at:</strong> <span id="modalMadeTime"></span></div><p class="note">✨ Kitchen time for fun!</p></div>
 </div>
 
 <div id="cartModal" class="overlay-modal">
@@ -282,6 +282,38 @@
   <div class="search-row"><input id="menuSearch" type="search" placeholder="Search burgers, cake, chicken..." aria-label="Search menu"><select id="categoryFilter" aria-label="Filter menu"><option value="all">Everything</option><option value="starters">Starters</option><option value="mains">Mains</option><option value="desserts">Desserts</option><option value="drinks">Drinks</option></select></div>
   <p id="searchResult" class="search-result"></p>
 </section>
+
+
+<section class="game-section" id="game">
+  <div class="game-header"><div><span class="panel-kicker">🎮 YUMMY ARCADE</span><h2>Catch The Food!</h2><p>Catch the falling food and build your score.</p></div><div class="score-box">🏆 Score: <strong id="gameScore">0</strong></div></div>
+  <div class="game-board" id="gameBoard"><div class="game-message" id="gameMessage">Press START and catch the food! 🍔</div><div class="basket" id="foodBasket">🧺</div></div>
+  <div class="game-controls"><button class="primary-button" id="startGame">▶ Start Game</button><button class="secondary-button" id="resetGame">↻ Reset</button><span>Best: <strong id="bestScore">0</strong></span></div>
+</section>
+
+<section class="progress-section" id="achievements">
+  <span class="panel-kicker">🏆 YUMMY CLUB</span><h2>Achievements</h2>
+  <div class="achievement-grid" id="achievementGrid">
+    <div class="achievement locked" data-ach="first"><span>🍽️</span><strong>First Order</strong><small>Add your first item</small></div>
+    <div class="achievement locked" data-ach="five"><span>🔥</span><strong>Hungry</strong><small>Order 5 items</small></div>
+    <div class="achievement locked" data-ach="game"><span>🎮</span><strong>Arcade Star</strong><small>Score 10 points</small></div>
+    <div class="achievement locked" data-ach="secret"><span>🕵️</span><strong>Secret Finder</strong><small>Find a secret</small></div>
+    <div class="achievement locked" data-ach="cake"><span>🍪</span><strong>Dessert Boss</strong><small>Add a dessert</small></div>
+    <div class="achievement locked" data-ach="master"><span>👑</span><strong>Yummy Master</strong><small>Unlock 5 achievements</small></div>
+  </div>
+</section>
+
+<section class="coins-section">
+  <div class="coin-card"><div class="coin-icon">🪙</div><div><span class="panel-kicker">YUMMY COINS</span><h2><span id="coinCount">0</span> Coins</h2><p>Earn coins whenever you order or play.</p></div></div>
+  <div class="coin-shop"><h3>🎁 Rewards</h3><button class="secondary-button reward-btn" data-cost="25">🍪 Cookie Boost — 25</button><button class="secondary-button reward-btn" data-cost="50">👑 Chef Crown — 50</button></div>
+</section>
+
+<section class="chef-section">
+  <div class="chef-avatar" id="chefAvatar">🧑‍🍳</div><div><span class="panel-kicker">👨‍🍳 CHEF'S DESK</span><h2 id="chefTitle">Chef Yummy</h2><p id="chefMessage">Welcome to The Yummy Kitchen! Pick something delicious.</p><button class="secondary-button" id="chefTalk">💬 Talk to Chef</button></div>
+</section>
+
+<section class="theme-section"><span class="panel-kicker">⚙️ SETTINGS</span><h2>Restaurant Mode</h2><div class="theme-buttons"><button class="secondary-button" id="dayMode">☀️ Day Mode</button><button class="secondary-button" id="nightMode">🌙 Night Mode</button><button class="secondary-button" id="soundToggle">🔊 Sounds On</button></div></section>
+
+<section class="secret-room" id="secretRoom"><div><span class="panel-kicker">🗝️ HIDDEN ROOM</span><h2>The Yummy Secret Room</h2><p>You found the hidden room! Look around for the royal recipe.</p><div class="secret-recipe" id="secretRecipe">🔒 Locked recipe</div><button class="secondary-button" id="unlockRecipe">🔓 Unlock Recipe</button></div></section>
 
 <script src="script.js"></script>
 </body>
