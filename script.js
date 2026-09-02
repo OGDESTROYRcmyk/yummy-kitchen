@@ -175,6 +175,140 @@ function endGame(){
 }
 $("#startGame").onclick=startGame;
 
+
+// ===== YUMMY KITCHEN 3.0 =====
+let powerups=JSON.parse(localStorage.getItem("ykPowerups")||'{"magnet":0,"life":0,"slow":0}');
+let rooms=JSON.parse(localStorage.getItem("ykRooms")||'{"burger":true}');
+let lastReward=localStorage.getItem("ykDailyReward")||"";
+let lastSpin=localStorage.getItem("ykSpin")||"";
+let challenge=localStorage.getItem("ykChallenge")||"";
+const today=new Date().toISOString().slice(0,10);
+
+function saveExtras(){
+ localStorage.setItem("ykPowerups",JSON.stringify(powerups));
+ localStorage.setItem("ykRooms",JSON.stringify(rooms));
+}
+
+function renderShop(){
+ const items=[
+  ["magnet","🧲 Food Magnet","Makes catching food easier","25"],
+  ["life","❤️ Extra Life","Adds one game life","30"],
+  ["slow","🐌 Slow Mode","Slows falling food for your next game","35"]
+ ];
+ $("#shop").innerHTML=items.map(x=>`<div class="shop-item"><div style="font-size:2.5rem">${x[0]==="magnet"?"🧲":x[0]==="life"?"❤️":"🐌"}</div><h3>${x[1]}</h3><p>${x[2]}</p><b>£? · ${x[3]} 🪙</b><button data-buy="${x[0]}" class="primary">Buy · ${x[3]} 🪙</button><div class="owned">Owned: ${powerups[x[0]]}</div></div>`).join("");
+ $$("#shop [data-buy]").forEach(b=>b.onclick=()=>{
+   const id=b.dataset.buy,cost={magnet:25,life:30,slow:35}[id];
+   if(coins<cost){toast("🪙 Not enough coins!");return}
+   coins-=cost;powerups[id]++;saveExtras();save();renderShop();toast("⚡ Upgrade purchased!");
+ });
+}
+
+function renderRooms(){
+ const data=[
+  ["burger","🍔 Burger Room","The home of legendary burgers.",40],
+  ["dessert","🍰 Dessert Room","Unlock the sweet kitchen.",60],
+  ["drinks","🥤 Drink Bar","Mix up the drink station.",80],
+  ["noodle","🍜 Noodle Kitchen","The noodle chef's secret area.",100],
+  ["vip","👑 VIP Kitchen","The ultimate Yummy Kitchen room.",150]
+ ];
+ $("#rooms").innerHTML=data.map(x=>{
+   const open=rooms[x[0]];
+   return `<div class="room-card"><div style="font-size:2.5rem">${x[1].split(" ")[0]}</div><h3>${x[1]}</h3><p>${x[2]}</p>${open?'<div class="owned">🔓 UNLOCKED</div>':`<button class="primary" data-room="${x[0]}" data-cost="${x[3]}">🔒 Unlock · ${x[3]} 🪙</button>`}</div>`
+ }).join("");
+ $$("#rooms [data-room]").forEach(b=>b.onclick=()=>{
+   const id=b.dataset.room,cost=Number(b.dataset.cost);
+   if(coins<cost){toast("🪙 You need more coins!");return}
+   coins-=cost;rooms[id]=true;saveExtras();save();renderRooms();toast("🗺️ New kitchen room unlocked!");
+ });
+}
+
+function renderDaily(){
+ const targets=[
+  ["Add 3 items to your basket","3 items","basket"],
+  ["Earn 25 Yummy Coins","25 coins","coins"],
+  ["Score 8 in Catch The Food","8 points","game"]
+ ];
+ const idx=new Date().getDate()%targets.length;
+ const t=targets[idx];
+ let progress=t[2]==="basket"?Math.min(3,cart.length):t[2]==="coins"?Math.min(25,coins):Math.min(8,best);
+ $("#dailyChallenge").innerHTML=`<b>🎯 Today's Challenge:</b> ${t[0]}<br><br>Progress: <b>${progress}</b> / ${t[1]}`;
+}
+
+$("#dailyReward").onclick=()=>{
+ if(lastReward===today){toast("🎁 You already claimed today's reward!");return}
+ lastReward=today;localStorage.setItem("ykDailyReward",today);coins+=30;save();toast("🎁 Daily reward: +30 Yummy Coins!");renderDaily()
+};
+
+$("#spinWheel").onclick=()=>{
+ if(lastSpin===today){toast("🎰 Come back tomorrow for another spin!");return}
+ lastSpin=today;localStorage.setItem("ykSpin",today);
+ const rewards=["🪙 +15 Coins","🪙 +25 Coins","❤️ +1 Life","🧲 +1 Magnet","🏆 +50 Coins"];
+ const reward=rewards[Math.floor(Math.random()*rewards.length)];
+ $("#wheelResult").classList.remove("spin");void $("#wheelResult").offsetWidth;$("#wheelResult").classList.add("spin");$("#wheelResult").textContent=reward;
+ if(reward.includes("+15"))coins+=15;
+ if(reward.includes("+25"))coins+=25;
+ if(reward.includes("+50"))coins+=50;
+ if(reward.includes("Life"))powerups.life++;
+ if(reward.includes("Magnet"))powerups.magnet++;
+ saveExtras();save();renderShop();toast("🎰 You won "+reward+"!");
+};
+
+$("#createDish").onclick=()=>{
+ const a=$("#dishBase").value,b=$("#dishSauce").value,c=$("#dishExtra").value;
+ const price=(15+Math.floor(Math.random()*15)).toFixed(2);
+ $("#createdDish").innerHTML=`<div style="font-size:2.5rem">🍽️</div><h3>Your Signature Dish</h3><p>${a} + ${b} + ${c}</p><b>Menu price: £${price}</b><br><button id="addCreated" class="primary" style="margin-top:10px">➕ Add My Dish</button>`;
+ $("#addCreated").onclick=()=>{cart.push({name:"My Signature Dish",price:Number(price),emoji:"🍽️"});coins+=5;save();toast("✨ Signature dish added! +5 coins")};
+};
+
+$("#mysteryBox").onclick=()=>{
+ if(coins<20){toast("🪙 You need 20 coins!");return}
+ coins-=20;
+ const rewards=[["🪙 +50 Coins",()=>coins+=50],["❤️ +1 Extra Life",()=>powerups.life++],["🧲 +1 Magnet",()=>powerups.magnet++],["🪙 +30 Coins",()=>coins+=30],["🏆 +75 Coins",()=>coins+=75]];
+ const r=rewards[Math.floor(Math.random()*rewards.length)];r[1]();
+ $("#mysteryResult").innerHTML=`🎁 <b>You opened the Mystery Box!</b><br><br>You got: <strong>${r[0]}</strong>`;
+ saveExtras();save();renderShop();toast("🎁 Mystery reward unlocked!");
+};
+
+// Improve game with levels, lives, combos, upgrades.
+let gameLevel=1,gameLives=3,combo=0;
+function updateGameHUD(){
+ $("#level").textContent=gameLevel;$("#lives").textContent=gameLives;$("#score").textContent=score;
+}
+const oldStartGame=startGame;
+startGame=function(){
+ if(gameRunning)return;
+ gameLevel=1;gameLives=3+powerups.life;combo=0;
+ if(powerups.life) powerups.life=0;
+ updateGameHUD();
+ oldStartGame();
+};
+function enhancedSpawnFood(){
+ if(!gameRunning)return;
+ const board=$("#gameBoard"),el=document.createElement("span");
+ el.className="game-food";el.textContent=gameFoods[Math.floor(Math.random()*gameFoods.length)];
+ el.style.left=(4+Math.random()*92)+"%";
+ const speed=powerups.slow>0?3.8:Math.max(1.4,2.8-gameLevel*.08);
+ el.style.animationDuration=speed+"s";board.appendChild(el);
+ const check=setInterval(()=>{
+   if(!gameRunning){clearInterval(check);return}
+   const a=el.getBoundingClientRect(),b=$("#basket").getBoundingClientRect();
+   const magnet=powerups.magnet>0;
+   const bx=magnet?b.left-45:b.left,br=magnet?b.right+45:b.right;
+   if(a.bottom>=b.top && a.left<br && a.right>bx){
+     score++;combo++;$("#score").textContent=score;el.remove();clearInterval(check);
+     if(combo%5===0){coins+=10;toast("🔥 COMBO! +10 coins")}
+     if(score>=10&&gameLevel<5){gameLevel++;toast("⬆️ LEVEL "+gameLevel+"!");updateGameHUD()}
+   }
+ },35);
+ setTimeout(()=>{
+   if(el.isConnected){el.remove();combo=0;gameLives--;updateGameHUD();if(gameLives<=0)endGame()}
+   clearInterval(check)
+ },speed*1000);
+}
+spawnFood=enhancedSpawnFood;
+
+renderShop();renderRooms();renderDaily();updateGameHUD();
+
 updateCoins();renderMenu();renderCart();renderAchievements();
 
 });

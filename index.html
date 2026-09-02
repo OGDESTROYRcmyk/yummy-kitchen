@@ -59,7 +59,7 @@
 
 <section id="game" class="section game-section">
   <div class="section-head"><div><p class="eyebrow">MINI GAME</p><h2>🎮 Catch The Food</h2><p>Click the falling food before it reaches the bottom!</p></div>
-  <div class="game-stats">Score: <b id="score">0</b> · Best: <b id="best">0</b> · Time: <b id="time">30</b>s</div></div>
+  <div class="game-stats">Score: <b id="score">0</b> · Best: <b id="best">0</b> · Level: <b id="level">1</b> · ❤️ <b id="lives">3</b> · Time: <b id="time">30</b>s</div></div>
   <div id="gameBoard"><div id="basket">🧺</div><button id="startGame" class="primary">START GAME</button></div><p class="controls-hint">⬅️ <b>Left Arrow</b> &nbsp; · &nbsp; <b>Right Arrow</b> ➡️ — move the basket</p>
 </section>
 
@@ -73,6 +73,52 @@
   <h2>🗝️ Secret Kitchen Room</h2>
   <p>Welcome to the hidden chef's room. You unlocked the secret recipe!</p>
   <div class="secret-recipe">🍪 <b>Secret Cookie Cake Sauce</b><br>Chef's top-secret kitchen recipe unlocked.</div>
+</section>
+
+
+<section class="section arcade-section">
+  <div class="section-head">
+    <div><p class="eyebrow">ARCADE UPGRADES</p><h2>⚡ Power-ups</h2><p>Buy upgrades with Yummy Coins.</p></div>
+  </div>
+  <div class="shop-grid" id="shop"></div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div><p class="eyebrow">REWARDS</p><h2>🎁 Daily Reward & Challenge</h2></div>
+    <div><button id="dailyReward" class="primary">🎁 Claim Daily Reward</button></div>
+  </div>
+  <div class="challenge-card" id="dailyChallenge"></div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div><p class="eyebrow">LUCKY KITCHEN</p><h2>🎰 Chef's Lucky Wheel</h2><p>Spin once per day.</p></div>
+    <button id="spinWheel" class="primary">🎰 SPIN</button>
+  </div>
+  <div id="wheelResult" class="wheel-result">?</div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div><p class="eyebrow">KITCHEN WORLD</p><h2>🗺️ Unlock the Rooms</h2></div></div>
+  <div id="rooms" class="rooms-grid"></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div><p class="eyebrow">CREATE</p><h2>🍳 Build Your Own Dish</h2></div></div>
+  <div class="creator">
+    <select id="dishBase"><option>🍔 Burger</option><option>🍝 Pasta</option><option>🍜 Noodles</option><option>🌯 Wrap</option></select>
+    <select id="dishSauce"><option>🧀 Cheese Sauce</option><option>🥫 Tomato Sauce</option><option>🌶️ Mild Spicy Sauce</option><option>🍯 Sweet Sauce</option></select>
+    <select id="dishExtra"><option>🍗 Chicken</option><option>🧀 Extra Cheese</option><option>🥚 Egg</option><option>🥬 Fresh Veggies</option></select>
+    <button id="createDish" class="primary">✨ Create Dish</button>
+  </div>
+  <div id="createdDish" class="created-dish">Choose your ingredients and create your signature dish!</div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div><p class="eyebrow">MYSTERY</p><h2>🎁 Mystery Food Box</h2><p>Spend 20 Yummy Coins for a random reward.</p></div>
+  <button id="mysteryBox" class="primary">🎁 Open Box · 20 🪙</button></div>
+  <div id="mysteryResult" class="challenge-card">What's inside? 👀</div>
 </section>
 
 <section class="section order-section">
