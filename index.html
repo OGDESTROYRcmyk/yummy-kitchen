@@ -7,314 +7,84 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="order-bar"><button id="orderButton" class="order-button">🛒 Your Order <span id="cartCount">0</span></button></div>
-
 <header class="hero">
-<nav><div class="logo">👑 The Yummy Kitchen</div>
-<div class="navlinks"><a href="#starters">Starters</a><a href="#mains">Mains</a><a href="#desserts">Desserts</a><a href="#drinks">Drinks</a><a href="#cakes">Wall of Cakes</a></div></nav>
-<div class="hero-content"><p class="eyebrow">LUXURY • FUN • FANCY</p><h1>The Yummy Kitchen</h1><p>Fine food. Fancy prices. Maximum Yummy Kitchen energy.</p><a class="button" href="#mains">View Menu</a></div>
+  <div class="topbar">
+    <button id="themeBtn">🌙 Night</button>
+    <button id="soundBtn">🔊 Sound</button>
+    <span id="coinDisplay">🪙 0 Yummy Coins</span>
+  </div>
+  <div class="hero-content">
+    <p class="eyebrow">LUXURY • FUN • FANCY</p>
+    <h1 id="secretTitle">The Yummy Kitchen</h1>
+    <p>Good food. Big vibes. Zero boring bites.</p>
+    <div class="hero-buttons">
+      <button class="primary" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">🍽️ Explore Menu</button>
+      <button onclick="document.getElementById('game').scrollIntoView({behavior:'smooth'})">🎮 Play Catch the Food</button>
+    </div>
+  </div>
 </header>
 
+<section class="promo">
+  <div class="promo-screen">
+    <div class="steam">♨️ ♨️ ♨️</div>
+    <div class="promo-food">🍔</div>
+    <div>
+      <b>THE YUMMY KITCHEN</b>
+      <span id="promoText">Fresh from the kitchen!</span>
+    </div>
+  </div>
+</section>
+
 <main>
-<section class="intro"><h2>Welcome</h2><p>This is the official luxury restaurant website for The Yummy Kitchen.</p><p class="click-hint">👆 Click any food card for its kitchen log, or add it to your order!</p></section>
-<section id="starters"><h2>🍽️ Starters</h2><div class="grid">
-<article class="card" data-index="0" data-name="Cheesy Garlic Bread" data-price="12.95" data-emoji="🍞">
-  <div class="food-picture">🍞</div>
-  <h3>Cheesy Garlic Bread </h3>
-  <p>Golden toast, garlic butter and melted cheese.</p>
-  <div class="price">£12.95</div>
-  <div class="rating">★★★★★ <span>4.9/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="1" data-name="Loaded Fries" data-price="18.95" data-emoji="🍟">
-  <div class="food-picture">🍟</div>
-  <h3>Loaded Fries </h3>
-  <p>Crispy fries with cheese and chicken.</p>
-  <div class="price">£18.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="2" data-name="Dynamite Shrimp" data-price="21.95" data-emoji="🍤">
-  <div class="food-picture">🍤</div>
-  <h3>Dynamite Shrimp </h3>
-  <p>Crispy shrimp with creamy mild dynamite sauce.</p>
-  <div class="price">£21.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="3" data-name="Chicken Dumplings" data-price="17.95" data-emoji="🥟">
-  <div class="food-picture">🥟</div>
-  <h3>Chicken Dumplings </h3>
-  <p>Soft dumplings with chicken filling and soy dip.</p>
-  <div class="price">£17.95</div>
-  <div class="rating">★★★★★ <span>4.9/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="4" data-name="Mozzarella Sticks" data-price="16.95" data-emoji="🧀">
-  <div class="food-picture">🧀</div>
-  <h3>Mozzarella Sticks </h3>
-  <p>Crispy outside, melty cheese inside.</p>
-  <div class="price">£16.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="5" data-name="Chicken Wings" data-price="19.95" data-emoji="🍗">
-  <div class="food-picture">🍗</div>
-  <h3>Chicken Wings </h3>
-  <p>Hot, crispy and saucy.</p>
-  <div class="price">£19.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article></div></section><section id="mains"><h2>🍗 Mains</h2><div class="grid">
-<article class="card" data-index="6" data-name="Chicken Burger 👑" data-price="27.95" data-emoji="🍔">
-  <div class="food-picture">🍔</div>
-  <h3>Chicken Burger 👑 <span class="chef-badge">👨‍🍳 CHEF’S SPECIAL</span></h3>
-  <p>Our 11/10 legend with chicken, cheese, lettuce and sauce.</p>
-  <div class="price">£27.95</div>
-  <div class="rating">★★★★★ <span>4.9/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="7" data-name="Creamy Chicken Mayo Pasta" data-price="24.95" data-emoji="🍝">
-  <div class="food-picture">🍝</div>
-  <h3>Creamy Chicken Mayo Pasta </h3>
-  <p>Our famous mild-mayo creamy chicken pasta.</p>
-  <div class="price">£24.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="8" data-name="Chicken Egg Fried Rice" data-price="22.95" data-emoji="🍚">
-  <div class="food-picture">🍚</div>
-  <h3>Chicken Egg Fried Rice </h3>
-  <p>Chicken, egg, rice and soy sauce.</p>
-  <div class="price">£22.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="9" data-name="Garlic Onion Chicken Noodles" data-price="23.95" data-emoji="🍜">
-  <div class="food-picture">🍜</div>
-  <h3>Garlic Onion Chicken Noodles </h3>
-  <p>Noodles with garlic, onion, chicken and soy sauce.</p>
-  <div class="price">£23.95</div>
-  <div class="rating">★★★★★ <span>4.9/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="10" data-name="Chicken Massaman Curry" data-price="29.95" data-emoji="🍛">
-  <div class="food-picture">🍛</div>
-  <h3>Chicken Massaman Curry </h3>
-  <p>Rich curry with chicken, potato and coconut milk.</p>
-  <div class="price">£29.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="11" data-name="Chicken Wrap" data-price="19.95" data-emoji="🌯">
-  <div class="food-picture">🌯</div>
-  <h3>Chicken Wrap </h3>
-  <p>Chicken, lettuce, tomato, cheese and sauce.</p>
-  <div class="price">£19.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article></div></section><section id="desserts"><h2>🍰 Desserts</h2><div class="grid">
-<article class="card" data-index="12" data-name="Ice Cream Mochi" data-price="14.95" data-emoji="🍨">
-  <div class="food-picture">🍨</div>
-  <h3>Ice Cream Mochi </h3>
-  <p>Soft mochi wrapped around cold ice cream.</p>
-  <div class="price">£14.95</div>
-  <div class="rating">★★★★★ <span>4.9/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="13" data-name="Fluffy Pancakes" data-price="15.95" data-emoji="🥞">
-  <div class="food-picture">🥞</div>
-  <h3>Fluffy Pancakes </h3>
-  <p>Warm pancakes with syrup and toppings.</p>
-  <div class="price">£15.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="14" data-name="Crispy Waffles" data-price="16.95" data-emoji="🧇">
-  <div class="food-picture">🧇</div>
-  <h3>Crispy Waffles </h3>
-  <p>Crispy waffles with fruit, syrup or ice cream.</p>
-  <div class="price">£16.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="15" data-name="Cookie Cake 👑" data-price="26.95" data-emoji="🍪">
-  <div class="food-picture">🍪</div>
-  <h3>Cookie Cake 👑 <span class="chef-badge">👨‍🍳 CHEF’S SPECIAL</span></h3>
-  <p>The 12/10 dessert legend.</p>
-  <div class="price">£26.95</div>
-  <div class="rating">★★★★★ <span>4.9/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="16" data-name="Chocolate Fudge Cake" data-price="24.95" data-emoji="🍫">
-  <div class="food-picture">🍫</div>
-  <h3>Chocolate Fudge Cake </h3>
-  <p>Rich chocolate cake with fudge.</p>
-  <div class="price">£24.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="17" data-name="Cheesecake" data-price="24.95" data-emoji="🍰">
-  <div class="food-picture">🍰</div>
-  <h3>Cheesecake </h3>
-  <p>Cool, creamy and smooth.</p>
-  <div class="price">£24.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article></div></section><section id="drinks"><h2>🥤 Drinks</h2><div class="grid">
-<article class="card" data-index="18" data-name="Banana Ice Cream Milkshake" data-price="13.95" data-emoji="🍌">
-  <div class="food-picture">🍌</div>
-  <h3>Banana Ice Cream Milkshake </h3>
-  <p>Banana, cold milk and vanilla ice cream.</p>
-  <div class="price">£13.95</div>
-  <div class="rating">★★★★★ <span>4.9/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="19" data-name="Strawberry Milk" data-price="9.95" data-emoji="🍓">
-  <div class="food-picture">🍓</div>
-  <h3>Strawberry Milk </h3>
-  <p>Cold milk with strawberry.</p>
-  <div class="price">£9.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="20" data-name="Rubicon" data-price="8.95" data-emoji="🥤">
-  <div class="food-picture">🥤</div>
-  <h3>Rubicon </h3>
-  <p>Officially approved.</p>
-  <div class="price">£8.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="21" data-name="Sprite" data-price="7.95" data-emoji="🥤">
-  <div class="food-picture">🥤</div>
-  <h3>Sprite </h3>
-  <p>Ice-cold lemon-lime fizz.</p>
-  <div class="price">£7.95</div>
-  <div class="rating">★★★★★ <span>4.9/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="22" data-name="7UP" data-price="7.95" data-emoji="🥤">
-  <div class="food-picture">🥤</div>
-  <h3>7UP </h3>
-  <p>Classic lemon-lime soda.</p>
-  <div class="price">£7.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article>
-<article class="card" data-index="23" data-name="Mango Mojito Mocktail" data-price="11.95" data-emoji="🥭">
-  <div class="food-picture">🥭</div>
-  <h3>Mango Mojito Mocktail </h3>
-  <p>Fresh mango, lime, mint and fizz. Alcohol-free.</p>
-  <div class="price">£11.95</div>
-  <div class="rating">★★★★★ <span>5/5</span></div>
-  <button class="add-order" type="button">🛒 Add to Order</button>
-  <div class="click-log">Click for kitchen log →</div>
-</article></div></section>
-<section id="cakes" class="cake-wall"><h2>🎂 The Wall of Cakes</h2><p class="wall-price">£1,499.95</p><p>A giant luxury dessert centrepiece packed with the greatest cakes in the Yummy Kitchen.</p><div class="cake-list"><span>Chocolate</span><span>Strawberry</span><span>Vanilla</span><span>Fudge</span><span>Red Velvet</span><span>Cheesecake</span><span>Cookie Cake</span><span>Mango</span><span>Chocolate Strawberry</span></div></section>
-<section class="banned"><h2>🚫 Official Banned Drinks</h2><p>Pepsi • Coke • Root Beer • Ginger Ale • Cream Soda • Unicorn Mojito • Any artificial mojito</p></section>
-<section class="terms"><h2>📜 Terms</h2><p>This website is a restaurant website project. Prices and menu items are for the website, and no payments, bookings or deliveries are processed.</p></section>
+<section class="info-grid">
+  <div class="info-card"><b>👨‍🍳 Chef status</b><span id="chefStatus">Chef is cooking!</span></div>
+  <div class="info-card"><b>🕒 Kitchen</b><span id="kitchenStatus">Open & cooking</span></div>
+  <div class="info-card"><b>⭐ Daily pick</b><span id="dailyPick">Chicken Burger 👑</span></div>
+</section>
+
+<section id="menu" class="section">
+  <div class="section-head">
+    <div><p class="eyebrow">THE MENU</p><h2>Pick your feast</h2></div>
+    <div class="filters">
+      <input id="search" placeholder="🔎 Search food...">
+      <button class="filter active" data-cat="all">All</button>
+      <button class="filter" data-cat="starters">Starters</button>
+      <button class="filter" data-cat="mains">Mains</button>
+      <button class="filter" data-cat="desserts">Desserts</button>
+      <button class="filter" data-cat="drinks">Drinks</button>
+    </div>
+  </div>
+  <div id="menuSections"></div>
+</section>
+
+<section id="game" class="section game-section">
+  <div class="section-head"><div><p class="eyebrow">MINI GAME</p><h2>🎮 Catch The Food</h2><p>Click the falling food before it reaches the bottom!</p></div>
+  <div class="game-stats">Score: <b id="score">0</b> · Best: <b id="best">0</b> · Time: <b id="time">30</b>s</div></div>
+  <div id="gameBoard"><div id="basket">🧺</div><button id="startGame" class="primary">START GAME</button></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div><p class="eyebrow">PROGRESS</p><h2>🏆 Achievements</h2></div></div>
+  <div id="achievements" class="achievements"></div>
+</section>
+
+<section id="secretRoom" class="secret-room section">
+  <p class="eyebrow">YOU FOUND IT</p>
+  <h2>🗝️ Secret Kitchen Room</h2>
+  <p>Welcome to the hidden chef's room. You unlocked the secret recipe!</p>
+  <div class="secret-recipe">🍪 <b>Secret Cookie Cake Sauce</b><br>Chef's top-secret kitchen recipe unlocked.</div>
+</section>
+
+<section class="section order-section">
+  <div class="section-head"><div><p class="eyebrow">YOUR ORDER</p><h2>🛒 Order basket</h2></div><button id="clearCart">Clear</button></div>
+  <div id="cart"></div>
+  <div class="checkout-row"><b>Total: <span id="total">£0.00</span></b><button id="checkout" class="primary">Checkout</button></div>
+</section>
 </main>
 
-<footer><p>© 2026 The Yummy Kitchen • The Yummy Kitchen</p></footer>
-
-<div id="toast" class="toast"></div>
-
-<div id="foodModal" class="overlay-modal">
-<div class="panel food-panel"><button class="panel-close" data-close="foodModal">×</button><div id="modalEmoji" class="big-emoji">🍽️</div><div class="panel-kicker">👑 KITCHEN LOG</div><h2 id="modalFoodName">Food</h2><p id="modalFoodDescription"></p><div class="made-time">🕒 <strong>Made at:</strong> <span id="modalMadeTime"></span></div><p class="note">✨ Kitchen time for fun!</p></div>
-</div>
-
-<div id="cartModal" class="overlay-modal">
-<div class="panel"><button class="panel-close" data-close="cartModal">×</button><div class="panel-kicker">👑 THE YUMMY KITCHEN</div><h2>Your Order</h2><div id="cartItems"></div><div class="cart-total"><span>Total</span><strong id="cartTotal">£0.00</strong></div><button id="checkoutButton" class="primary-button">Proceed to Checkout →</button></div>
-</div>
-
-<div id="checkoutModal" class="overlay-modal">
-<div class="panel"><button class="panel-close" data-close="checkoutModal">×</button><div class="panel-kicker">✨ CHECKOUT</div><h2>Yummy Kitchen Checkout</h2><p>No payment is processed on this website.</p><div class="checkout-card"><div class="checkout-card-top"><span>YUMMY KITCHEN</span><span>👑</span></div><div class="checkout-card-number">•••• •••• •••• 2026</div><div class="checkout-card-bottom"><span>YUMMY GUEST</span><span>DEMO</span></div></div><button id="placeOrderButton" class="primary-button">Place Order 🎉</button></div>
-</div>
-
-<div id="receiptModal" class="overlay-modal">
-<div class="panel"><button class="panel-close" data-close="receiptModal">×</button><div class="receipt-crown">👑</div><h2>Order Confirmed!</h2><p>Your order has been sent to the kitchen.</p><div id="receiptContent"></div><button class="primary-button" data-close="receiptModal">Done ✓</button></div>
-</div>
-
-<section class="promo-section" id="promo">
-  <div class="promo-head"><div><span class="panel-kicker">🎬 YUMMY KITCHEN TV</span><h2>Our Restaurant Promo</h2><p>A Yummy Kitchen mini-video made with HTML animations.</p></div><button class="primary-button" id="promoPlay">▶ Play Promo</button></div>
-  <div class="promo-video" id="promoVideo" aria-label="Animated Yummy Kitchen promo">
-    <div class="video-top"><span>🔴 REC</span><span>THE YUMMY KITCHEN</span><span>2026</span></div>
-    <div class="video-scene scene-one"><div class="scene-food">🍔</div><h3>WELCOME TO THE YUMMY KITCHEN!</h3><p>Where every order gets the royal treatment 👑</p></div>
-    <div class="video-scene scene-two"><div class="scene-food">🍟🍗🍝</div><h3>BIG FLAVOUR. BIG FUN.</h3><p>Starters • Mains • Desserts • Drinks</p></div>
-    <div class="video-scene scene-three"><div class="scene-food">🍪🍰🥞</div><h3>DON'T FORGET DESSERT!</h3><p>Cookie Cake is waiting... 👀</p></div>
-    <div class="video-scene scene-four"><div class="scene-food">✨👑✨</div><h3>THE YUMMY KITCHEN</h3><p>Thanks for visiting!</p></div>
-    <div class="video-controls"><button id="promoBack">↶</button><button id="promoPause">Ⅱ</button><div class="video-progress"><span id="promoProgress"></span></div><span id="promoTime">0:00 / 0:16</span></div>
-  </div>
-</section>
-
-<section class="extras-section">
-  <div class="extra-card"><span>🔥</span><h3>Kitchen Live</h3><p id="liveStatus">Checking the kitchen...</p></div>
-  <div class="extra-card"><span>⭐</span><h3>Today's Pick</h3><p id="dailyPick">Loading...</p></div>
-  <div class="extra-card"><span>🎟️</span><h3>Secret Button</h3><button class="secondary-button" id="secretButton">???</button></div>
-</section>
-
-<section class="search-section">
-  <span class="panel-kicker">🔎 MENU CONTROL</span><h2>Find Your Food</h2>
-  <div class="search-row"><input id="menuSearch" type="search" placeholder="Search burgers, cake, chicken..." aria-label="Search menu"><select id="categoryFilter" aria-label="Filter menu"><option value="all">Everything</option><option value="starters">Starters</option><option value="mains">Mains</option><option value="desserts">Desserts</option><option value="drinks">Drinks</option></select></div>
-  <p id="searchResult" class="search-result"></p>
-</section>
-
-
-<section class="game-section" id="game">
-  <div class="game-header"><div><span class="panel-kicker">🎮 YUMMY ARCADE</span><h2>Catch The Food!</h2><p>Catch the falling food and build your score.</p></div><div class="score-box">🏆 Score: <strong id="gameScore">0</strong></div></div>
-  <div class="game-board" id="gameBoard"><div class="game-message" id="gameMessage">Press START and catch the food! 🍔</div><div class="basket" id="foodBasket">🧺</div></div>
-  <div class="game-controls"><button class="primary-button" id="startGame">▶ Start Game</button><button class="secondary-button" id="resetGame">↻ Reset</button><span>Best: <strong id="bestScore">0</strong></span></div>
-</section>
-
-<section class="progress-section" id="achievements">
-  <span class="panel-kicker">🏆 YUMMY CLUB</span><h2>Achievements</h2>
-  <div class="achievement-grid" id="achievementGrid">
-    <div class="achievement locked" data-ach="first"><span>🍽️</span><strong>First Order</strong><small>Add your first item</small></div>
-    <div class="achievement locked" data-ach="five"><span>🔥</span><strong>Hungry</strong><small>Order 5 items</small></div>
-    <div class="achievement locked" data-ach="game"><span>🎮</span><strong>Arcade Star</strong><small>Score 10 points</small></div>
-    <div class="achievement locked" data-ach="secret"><span>🕵️</span><strong>Secret Finder</strong><small>Find a secret</small></div>
-    <div class="achievement locked" data-ach="cake"><span>🍪</span><strong>Dessert Boss</strong><small>Add a dessert</small></div>
-    <div class="achievement locked" data-ach="master"><span>👑</span><strong>Yummy Master</strong><small>Unlock 5 achievements</small></div>
-  </div>
-</section>
-
-<section class="coins-section">
-  <div class="coin-card"><div class="coin-icon">🪙</div><div><span class="panel-kicker">YUMMY COINS</span><h2><span id="coinCount">0</span> Coins</h2><p>Earn coins whenever you order or play.</p></div></div>
-  <div class="coin-shop"><h3>🎁 Rewards</h3><button class="secondary-button reward-btn" data-cost="25">🍪 Cookie Boost — 25</button><button class="secondary-button reward-btn" data-cost="50">👑 Chef Crown — 50</button></div>
-</section>
-
-<section class="chef-section">
-  <div class="chef-avatar" id="chefAvatar">🧑‍🍳</div><div><span class="panel-kicker">👨‍🍳 CHEF'S DESK</span><h2 id="chefTitle">Chef Yummy</h2><p id="chefMessage">Welcome to The Yummy Kitchen! Pick something delicious.</p><button class="secondary-button" id="chefTalk">💬 Talk to Chef</button></div>
-</section>
-
-<section class="theme-section"><span class="panel-kicker">⚙️ SETTINGS</span><h2>Restaurant Mode</h2><div class="theme-buttons"><button class="secondary-button" id="dayMode">☀️ Day Mode</button><button class="secondary-button" id="nightMode">🌙 Night Mode</button><button class="secondary-button" id="soundToggle">🔊 Sounds On</button></div></section>
-
-<section class="secret-room" id="secretRoom"><div><span class="panel-kicker">🗝️ HIDDEN ROOM</span><h2>The Yummy Secret Room</h2><p>You found the hidden room! Look around for the royal recipe.</p><div class="secret-recipe" id="secretRecipe">🔒 Locked recipe</div><button class="secondary-button" id="unlockRecipe">🔓 Unlock Recipe</button></div></section>
-
+<div id="toast"></div>
+<div id="modal" class="modal"><div class="modal-box"><button class="close" id="closeModal">✕</button><div id="modalContent"></div></div></div>
+<footer>© The Yummy Kitchen • Made for fun • Checkout does not process real payments.</footer>
 <script src="script.js"></script>
 </body>
 </html>
