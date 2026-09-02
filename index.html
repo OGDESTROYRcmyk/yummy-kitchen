@@ -259,6 +259,30 @@
 <div class="panel"><button class="panel-close" data-close="receiptModal">×</button><div class="receipt-crown">👑</div><h2>Order Confirmed!</h2><p>Your completely fictional order has been sent to the kitchen.</p><div id="receiptContent"></div><button class="primary-button" data-close="receiptModal">Done ✓</button></div>
 </div>
 
+<section class="promo-section" id="promo">
+  <div class="promo-head"><div><span class="panel-kicker">🎬 YUMMY KITCHEN TV</span><h2>Our Fake Restaurant Promo</h2><p>A completely fictional mini-video made with HTML animations — no real footage needed!</p></div><button class="primary-button" id="promoPlay">▶ Play Promo</button></div>
+  <div class="fake-video" id="fakeVideo" aria-label="Animated fictional Yummy Kitchen promo">
+    <div class="video-top"><span>🔴 REC</span><span>THE YUMMY KITCHEN</span><span>2026</span></div>
+    <div class="video-scene scene-one"><div class="scene-food">🍔</div><h3>WELCOME TO THE YUMMY KITCHEN!</h3><p>Where every order gets the royal treatment 👑</p></div>
+    <div class="video-scene scene-two"><div class="scene-food">🍟🍗🍝</div><h3>BIG FLAVOUR. BIG FUN.</h3><p>Starters • Mains • Desserts • Drinks</p></div>
+    <div class="video-scene scene-three"><div class="scene-food">🍪🍰🥞</div><h3>DON'T FORGET DESSERT!</h3><p>Cookie Cake is waiting... 👀</p></div>
+    <div class="video-scene scene-four"><div class="scene-food">✨👑✨</div><h3>THE YUMMY KITCHEN</h3><p>Thanks for visiting!</p></div>
+    <div class="video-controls"><button id="promoBack">↶</button><button id="promoPause">Ⅱ</button><div class="video-progress"><span id="promoProgress"></span></div><span id="promoTime">0:00 / 0:16</span></div>
+  </div>
+</section>
+
+<section class="extras-section">
+  <div class="extra-card"><span>🔥</span><h3>Kitchen Live</h3><p id="liveStatus">Checking the kitchen...</p></div>
+  <div class="extra-card"><span>⭐</span><h3>Today's Pick</h3><p id="dailyPick">Loading...</p></div>
+  <div class="extra-card"><span>🎟️</span><h3>Secret Button</h3><button class="secondary-button" id="secretButton">???</button></div>
+</section>
+
+<section class="search-section">
+  <span class="panel-kicker">🔎 MENU CONTROL</span><h2>Find Your Food</h2>
+  <div class="search-row"><input id="menuSearch" type="search" placeholder="Search burgers, cake, chicken..." aria-label="Search menu"><select id="categoryFilter" aria-label="Filter menu"><option value="all">Everything</option><option value="starters">Starters</option><option value="mains">Mains</option><option value="desserts">Desserts</option><option value="drinks">Drinks</option></select></div>
+  <p id="searchResult" class="search-result"></p>
+</section>
+
 <script src="script.js"></script>
 </body>
 </html>
